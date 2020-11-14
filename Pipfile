@@ -15,6 +15,7 @@ requests = "*"
 python-dotenv = "*"
 django-crispy-forms = "*"
 werkzeug = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.8"

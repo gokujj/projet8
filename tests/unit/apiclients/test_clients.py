@@ -1,6 +1,6 @@
 import pytest
 
-from apps.apiclients import clients
+from apiclients import clients
 
 
 class TestOpenfoodfactsClient:
