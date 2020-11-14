@@ -9,13 +9,13 @@ class ProductManager(models.Manager):
     def create_from_openfoodfacts(self, products):
         """Save received product and category data as model instances."""
         for product_info in products:
-            # Récupération des catégories et magasins
+            # Retrieving categories and stores
             categories = product_info.pop("categories")
 
-            # Enregistrement du produit
+            # Product registration
             product = self.create(**product_info)
 
-            # Création des catégories et association avec le produit
+            # Creation of categories and association with the product
             for category_name in categories:
-                category = Category.objects.create(name=category_name)
+                category, _ = Category.objects.get_or_create(name=category_name)
                 product.categories.add(category)

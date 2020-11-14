@@ -7,13 +7,14 @@ verify_ssl = true
 django-extensions = "*"
 pytest = "*"
 pytest-django = "*"
+pytest-mock = "*"
 
 [packages]
 django = "*"
 requests = "*"
 python-dotenv = "*"
 django-crispy-forms = "*"
-
+werkzeug = "*"
 
 [requires]
 python_version = "3.8"
