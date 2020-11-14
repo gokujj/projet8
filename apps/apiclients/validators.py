@@ -10,7 +10,7 @@ def validate_fields_are_present_in_product(product):
 
 def validate_fields_are_not_empty_in_product(product):
     fields = {
-        "code", "product_name", "categories", "stores", "nutriscore_grade",
+        "code", "product_name", "categories", "nutriscore_grade",
         "url", "generic_name", "image_nutrition_url", "image_url"
     }
     for field in fields:
