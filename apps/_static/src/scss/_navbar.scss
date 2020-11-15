@@ -26,6 +26,20 @@
             }
         }
     }
+
+    .navigation {
+        font-size: 1.5rem;
+    }
+    
+    .navigation--logo {
+        width: 50px;
+        margin: 0 10px;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 1.8rem;
+    }
+
     @include media-breakpoint-up(lg) {
         // Base styling for the navbar - screen sizes greater than the large breakpoint
         box-shadow: none;
@@ -75,8 +89,3 @@
         }
     }
 }
-
-.navigation--logo {
-    width: 50px;
-    margin: 5px;
-} 

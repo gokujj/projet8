@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 
-from .views import user_profile
+from .views import UserProfileView
 
 app_name = 'profiles'
 
-urlpatterns = [path('<int:user_id>/', user_profile, name='user_profile')]
+urlpatterns = [path('', UserProfileView.as_view(), name='user_profile')]

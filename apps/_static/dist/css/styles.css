@@ -471,7 +471,7 @@ mark,
   color: #6c757d;
 }
 .blockquote-footer::before {
-  content: "— ";
+  content: "— ";
 }
 
 .img-fluid {
@@ -9983,6 +9983,10 @@ html {
   height: 100%;
 }
 
+body {
+  min-height: 100vh;
+}
+
 hr.divider {
   max-width: 3.25rem;
   border-width: 0.2rem;
@@ -10010,6 +10014,10 @@ hr.light {
   padding: 8rem 0;
 }
 
+.main-content {
+  flex-grow: 1;
+}
+
 #mainNav {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   background-color: #fff;
@@ -10032,6 +10040,16 @@ hr.light {
 }
 #mainNav .navbar-nav .nav-item .nav-link.active {
   color: #C45525 !important;
+}
+#mainNav .navigation {
+  font-size: 1.5rem;
+}
+#mainNav .navigation--logo {
+  width: 50px;
+  margin: 0 10px;
+}
+#mainNav .navbar-nav .nav-item .nav-link {
+  font-size: 1.8rem;
 }
 @media (min-width: 992px) {
   #mainNav {
@@ -10072,15 +10090,9 @@ hr.light {
   }
 }
 
-.navigation--logo {
-  width: 50px;
-  margin: 5px;
-}
-
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background: url("../assets/img/bg-masthead.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -10091,8 +10103,6 @@ header.masthead h1 {
 }
 @media (min-width: 992px) {
   header.masthead {
-    height: 100vh;
-    min-height: 40rem;
     padding-top: 4.5rem;
     padding-bottom: 0;
   }
@@ -10106,6 +10116,13 @@ header.masthead h1 {
 @media (min-width: 1200px) {
   header.masthead h1 {
     font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  header.home-masthead {
+    height: 100vh;
+    flex-grow: 1;
   }
 }
 
@@ -10143,6 +10160,16 @@ header.masthead h1 {
 }
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
+}
+
+.search-form > .form-group:first-child {
+  flex-grow: 1;
+}
+.search-form > .form-group:first-child div {
+  width: 100%;
+}
+.search-form > .form-group:first-child div input {
+  width: 100%;
 }
 
 .text-white-75 {

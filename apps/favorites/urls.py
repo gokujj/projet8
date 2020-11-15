@@ -5,4 +5,4 @@ from .views import user_favorites
 
 app_name = 'favorites'
 
-urlpatterns = [path('<int:user_id>/', user_favorites, name="user_favorites")]
+urlpatterns = [path('', user_favorites, name="user_favorites")]

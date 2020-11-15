@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -7,6 +8,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>{% block title %}Pur Beurre{% endblock title %}</title>
+
         <!-- Favicon-->
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'dist/assets/img/favicons/apple-touch-icon.png' %}">
         <link rel="icon" type="image/png" sizes="32x32" href="{% static 'dist/assets/img/favicons/favicon-32x32.png' %}">
@@ -25,11 +27,14 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'dist/css/styles.css' %}" rel="stylesheet" />
 
-        <style>
-            header.masthead {
-                {% block masthead_image %}url("{% static 'dist/assets/img/bg_masthead.jpg' %}");{% endblock masthead_image %}
-            }
+        <style> 
+        header.masthead {
+            background: 
+                linear-gradient(to bottom, rgba(99, 91, 85, 0.75), rgba(99, 91, 85, 0.75)),
+                {% block masthead_img %}url("{% static 'dist/assets/img/bg-masthead.jpg' %}");{% endblock masthead_img %}
+        }
         </style>
+        
 
         {% endblock styles %}
         <!-- Font Awesome icons (free version)-->
@@ -37,7 +42,7 @@
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
         {% endblock head_scripts %}
     </head>
-    <body id="page-top">
+    <body id="page-top" class="d-flex flex-column">
         <!-- Navigation-->
         {% block navigation %}
         <nav class="navigation navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
@@ -48,15 +53,14 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navigation--menu navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item">
-                            <form class="search-form" action="{% url 'products:search' %}" method="GET">
-                                {{ csrf_token }}
-                                {{ form.as_p }}
+                            <form class="search-form" action="{% url 'products:search' %}" method="get">
+                                {{ search_form|crispy }}
                             </form>
                         </li>
 
                         {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'profiles:user_profile' user.id %}"><i id="menu--user" class="menu--user fas fa-user"></i></a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'favorites:user_favorites' user.id %}"><i id="menu--carrot" class="menu--carrot fas fa-carrot"></i></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'profiles:user_profile' %}"><i id="menu--user" class="menu--user fas fa-user"></i></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'favorites:user_favorites' %}"><i id="menu--carrot" class="menu--carrot fas fa-carrot"></i></a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_logout' %}"><i id="menu--logout" class="menu--logout fas fa-sign-out-alt"></i></a></li>
                         {% else %}
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}"><i id="menu--login" class="menu--login fas fa-sign-in-alt"></i></a></li>
@@ -81,7 +85,8 @@
         </header>
         {% endblock masthead %}
 
-        {% block content %}{% endblock content%}
+        {% block content %}
+        {% endblock content%}
 
         <!-- Footer-->
         {% block footer %}
@@ -96,7 +101,6 @@
                     </div>
                 </div>
             </div>
-
         </footer>
         {% endblock footer %}
 

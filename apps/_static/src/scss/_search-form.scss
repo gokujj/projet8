@@ -1,0 +1,10 @@
+.search-form > .form-group:first-child {
+    flex-grow: 1;
+    div {
+        width: 100%;
+        input {
+            width: 100%;
+            
+        }
+    }
+}

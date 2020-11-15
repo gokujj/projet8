@@ -4,7 +4,7 @@ import requests
 import tests.unit.apiclients.test_data as data
 
 from apps.apiclients.clients import OpenfoodfactsClient
-from apps.apiclients.validators import ProductValidator
+from apps.apiclients.validators import ProductValidator 
 from apps.apiclients.normalizers import ProductNormalizer
 from tests.unit.apiclients.test_data import VALID_PRODUCT
 
@@ -80,31 +80,25 @@ def mock_get_with_no_result(mocker):
     )
     yield mock_requests_get
 
-
 @pytest.fixture
 def validator():
     yield ProductValidator()
-
 
 @pytest.fixture
 def valid_products():
     yield data.get_valid_products()
 
-
 @pytest.fixture
 def valid_product():
     return VALID_PRODUCT
-
 
 @pytest.fixture
 def invalid_products():
     yield data.get_invalid_products()
 
-
 @pytest.fixture
 def invalid_with_one_valid_product():
     yield data.get_invalid_with_one_valid_product()
-
 
 @pytest.fixture
 def normalizer():

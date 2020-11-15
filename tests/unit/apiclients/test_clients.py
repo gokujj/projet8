@@ -52,6 +52,7 @@ class TestOpenfoodfactsClient:
         mock_get.assert_any_call(url, params=params)
         mock_get.assert_any_call(url, params={**params, "page": 1})
 
+
     def test_get_products_by_popularity_returns_list_with_correct_products(
         self, client, mock_get
     ):
@@ -76,3 +77,4 @@ class TestOpenfoodfactsClient:
     ):
         results = client.get_products_by_popularity()
         assert results == []
+
