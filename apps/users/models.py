@@ -3,5 +3,5 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    """Utilisateur personnalisé représentant les visiteurs inscrits de notre
+    """Custom user representing registered visitors to our
     application."""

@@ -3,8 +3,8 @@ from django.contrib.auth import get_user_model
 
 
 class UserCreationForm(forms.UserCreationForm):
-    """Formulaire gérant la saisie de données pour créer de nouveau
-    utilisateurs."""
+    """Form managing data entry to create new
+    users."""
 
     class Meta(forms.UserCreationForm.Meta):
         model = get_user_model()
@@ -12,8 +12,7 @@ class UserCreationForm(forms.UserCreationForm):
 
 
 class UserChangeForm(forms.UserChangeForm):
-    """Formlaire gérant la saisie de données pour mettre à jours les infos
-    d'un utilisateur."""
+    """Form managing data entry to update a user's information."""
 
     class Meta(forms.UserChangeForm.Meta):
         model = get_user_model()

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Pur Beurre | Détails du produit{% endblock title %}
+
+{% block masthead %}
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-10 align-self-end">
+                <h1 class="text-uppercase text-white font-weight-bold">{{ product.name|title }}</h1>
+                <hr class="divider my-4" />
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock masthead %}
+
+{% if product %}
+    {% block masthead_img %}url("{{ product.image_url }}");{% endblock masthead_img %}
+{% endif %}
+
+{% block content %}
+<main class="product-info main-content container mt-5 mb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="product-info__nutriscore col-sm-4">
+            <img src="{% static 'dist/assets/img/nutriscores/' %}nutriscore-{{ product.nutriscore }}.svg" alt="nutriscore">
+        </div>
+        <div class="product-info__nutrition col-sm-4">
+            <img class="product-info__nutrition__image" src="{{ product.image_nutrition_url }}" alt="nutrition info">
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <a class="product-info__link col-sm-6" href="{{ product.url }}">Voir la fiche d'OpenFoodFacts</a>
+    </div>
+</main>
+{% endblock content%}

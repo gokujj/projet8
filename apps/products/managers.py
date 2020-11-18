@@ -1,6 +1,7 @@
 from django.db import models
 
 from categories.models import Category
+from favorites.models import Favorite
 
 
 class ProductManager(models.Manager):
@@ -22,25 +23,42 @@ class ProductManager(models.Manager):
                 )
                 product.categories.add(category)
 
-    def find_substitutes(self, product_name):
+    def find_substitutes(self, product_name, user=None):
         """Finds substitutes for product_name.
         The strategy used is to find the best products
         nutriscore with the greatest number of categories in common with
         product_name.
         """
+        # We start with valid product_name
+        if not product_name:  # si égal à None ou une chaine vide
+            return None, []
         # Find the product corresponding to product_name in the database
         # of data
-        print(f"Recu: {product_name}")
+
         product = (
             self.filter(name__icontains=product_name).order_by('?').first()
         )
-        print(f"Trouvé: {product}")
+
         if not product:
-            return []
+            return product, []
+
+        product.image_url = product.image_url.replace(
+            "400.jpg", "full.jpg"
+        ).replace("400.png", "full.png")
+
+        # On élimine de la cherche les produits qui ont déjà été mis en
+        # favori par l'utilisateur comme substitut de product.
+        products = self.all()
+        if user is not None and user.is_authenticated:
+            products = products.exclude(
+                favorites_as_substitute__in=Favorite.objects.filter(
+                    user=user, product=product
+                )
+            )
 
         # We return a list of healthier substitutes to product
         substitutes = (
-            self.exclude(pk=product.pk)
+            products.exclude(pk=product.pk)
             .filter(
                 categories__in=product.categories.all(),
                 nutriscore__lt=product.nutriscore,
@@ -48,13 +66,13 @@ class ProductManager(models.Manager):
             .annotate(num_common_categories=models.Count('pk'))
             .order_by('-num_common_categories', 'nutriscore')
         )
-        if substitutes:
-            return substitutes
+        if substitutes or product.nutriscore > "b":
+            return product, list(substitutes)
 
         # If no healthier product is found, we look for products
         # the same nutriscore
-        return (
-            self.exclude(pk=product.pk)
+        return product, list(
+            products.exclude(pk=product.pk)
             .filter(
                 categories__in=product.categories.all(),
                 nutriscore=product.nutriscore,

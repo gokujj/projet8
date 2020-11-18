@@ -1,0 +1,14 @@
+<div class="substitute col-lg-4 col-md-6 d-flex justify-content-center">
+    <div class="substitute__card">
+        <div class="substitute__nutriscore bg__nutriscore__{{ substitute.nutriscore }}">{{ substitute.nutriscore|upper }}</div>
+        <img src="{{ substitute.image_url }}" alt="{{ substitute.name }}" class="substitute__image">
+        <p class="substitute__name"><a href="{% url 'products:details' substitute.id %}">{{ substitute.name|capfirst }}</a></p>
+        {% if user.is_authenticated %}
+        <form method="post" action="" class="substitute__form">
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <input type="hidden" name="substitute_id" value="{{ substitute.id }}">
+            <button class="substitute__form__button btn btn-primary"><i class="fas fa-save"></i> Sauvegarder</button>
+        </form>
+        {% endif %}
+    </div>
+</div>

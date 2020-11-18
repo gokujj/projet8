@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Pur Beurre | Résultats{% endblock title %}
+
+{% block masthead %}
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-10 align-self-end">
+                {% if product %}
+                <h1 class="text-uppercase text-white font-weight-bold">{{ product.name|title }}</h1>
+                {% else %}
+                <h1 class="text-uppercase text-white font-weight-bold">Produit inconnu !</h1>
+                {% endif %}
+                <hr class="divider my-4" />
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock masthead %}
+
+{% if product %}
+    {% block masthead_img %}url("{{ product.image_url }}");{% endblock masthead_img %}
+{% endif %}
+
+{% block content %}
+<main class="main-content container mt-5 mb-5">
+    <div class="row justify-content-center">
+        {% for substitute in substitutes %}
+            {% include 'products/result.html' %}
+        {% empty %}
+            {% if product %}
+                <p>Aucun substitut n'a été trouvé pour votre recherche</p>
+            {% else %}
+                <p>
+                    Aucun produit correspondant à votre recherche n'a été trouvé
+                    dans notre base de données.
+                </p>
+            {% endif %}
+        {% endfor %}
+    </div>
+</main>
+{% endblock content%}
