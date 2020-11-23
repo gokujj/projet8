@@ -23,17 +23,10 @@
 
 {% block content %}
 <main class="product-info main-content container mt-5 mb-5">
-    <div class="row d-flex justify-content-center">
-        <div class="product-info__nutriscore col-sm-4">
-            <img src="{% static 'dist/assets/img/nutriscores/' %}nutriscore-{{ product.nutriscore }}.svg" alt="nutriscore">
-        </div>
-        <div class="product-info__nutrition col-sm-4">
-            <img class="product-info__nutrition__image" src="{{ product.image_nutrition_url_400 }}" alt="nutrition info">
-        </div>
-    </div>
-
-    <div class="row d-flex justify-content-center">
-        <a class="product-info__link col-sm-6" href="{{ product.url }}">Voir la fiche d'OpenFoodFacts</a>
+    <div class="row justify-content-center">
+        <img class="product-info__nutriscore col-sm-6" style="object-fit: contain;" src="{% static 'dist/assets/img/nutriscores/' %}nutriscore-{{ product.nutriscore }}.svg" alt="nutriscore">
+        <img class="product-info__nutrition col-sm-6" style="object-fit: contain;" src="{{ product.image_nutrition_url_400 }}" alt="nutrition info">
+        <a class="product-info__link col-sm-6 mt-5 p-2 text-center border border-primary rounded" href="{{ product.url }}">Voir la fiche d'OpenFoodFacts</a>
     </div>
 </main>
 {% endblock content%}
