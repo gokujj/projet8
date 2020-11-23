@@ -12,8 +12,18 @@ class Product(models.Model):
     nutriscore = models.CharField('product nutriscore', max_length=1)
     description = models.TextField('product description')
     image_url = models.CharField('product image url', max_length=255)
+    image_url_400 = models.CharField(
+        'product image url medium', max_length=255
+    )
+    image_url_200 = models.CharField('product image url small', max_length=255)
     image_nutrition_url = models.CharField(
         'product nutrition image url', max_length=255
+    )
+    image_nutrition_url_400 = models.CharField(
+        'product nutrition image url medium', max_length=255
+    )
+    image_nutrition_url_200 = models.CharField(
+        'product nutrition image url small', max_length=255
     )
     categories = models.ManyToManyField(
         'categories.Category', related_name='products'
