@@ -15,7 +15,7 @@ class Command(BaseCommand):
         validator = ProductValidator()
         normalizer = ProductNormalizer()
 
-        # Télécharger les données depuis openfoodfacts
+        # Download data from openfoodfacts
         self.stdout.write(
             self.style.SUCCESS('Downloading products from openfoodfacts...')
         )
@@ -23,9 +23,9 @@ class Command(BaseCommand):
             page_size=settings.PRODUCT_CLIENT_PAGE_SIZE,
             number_of_pages=settings.PRODUCT_CLIENT_NUMBER_OF_PAGES,
         )
-        # Valider les données reçues
+        # Validate the data received
         products = validator.filter(products)
-        # Normaliser les données reçues
+        # Normalize received data
         normalizer.normalize_all(products)
 
         Product.objects.create_from_openfoodfacts(products)

@@ -7,7 +7,7 @@ class Product(models.Model):
     """Represents a product from the openfoodfacts API."""
 
     id = models.BigIntegerField(primary_key=True)
-    name = models.CharField('product name', max_length=200)
+    name = models.CharField('product name', max_length=255)
     url = models.CharField('openfoodfacts url', max_length=255)
     nutriscore = models.CharField('product nutriscore', max_length=1)
     description = models.TextField('product description')

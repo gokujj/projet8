@@ -44,6 +44,16 @@ def transform_images_to_full_size(product):
     )
 
 
+def limit_length_of_product_names(product):
+    product['name'] = product['name'][:255]
+
+
+def limit_length_of_category_names(product):
+    product['categories'] = [
+        category_name[:255] for category_name in product['categories']
+    ]
+
+
 class ProductNormalizer:
     """Object used to standardize product dictionaries."""
 
@@ -52,6 +62,9 @@ class ProductNormalizer:
         transform_fields_into_lowercase_letters,
         transform_categories_into_list,
         transform_field_names,
+        transform_images_to_full_size,
+        limit_length_of_product_names,
+        limit_length_of_category_names,
     ]
 
     def normalize(self, product):
