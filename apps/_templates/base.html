@@ -60,7 +60,7 @@
 
                         {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'profiles:user_profile' %}"><i id="menu--user" class="menu--user fas fa-user"></i></a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'favorites:user_favorites' %}"><i id="menu--carrot" class="menu--carrot fas fa-carrot"></i></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'favorites:list' %}"><i id="menu--carrot" class="menu--carrot fas fa-carrot"></i></a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_logout' %}"><i id="menu--logout" class="menu--logout fas fa-sign-out-alt"></i></a></li>
                         {% else %}
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}"><i id="menu--login" class="menu--login fas fa-sign-in-alt"></i></a></li>

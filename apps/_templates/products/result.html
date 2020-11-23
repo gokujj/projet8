@@ -4,11 +4,8 @@
         <img src="{{ substitute.image_url }}" alt="{{ substitute.name }}" class="substitute__image">
         <p class="substitute__name"><a href="{% url 'products:details' substitute.id %}">{{ substitute.name|capfirst }}</a></p>
         {% if user.is_authenticated %}
-        <form method="post" action="" class="substitute__form">
-            <input type="hidden" name="product_id" value="{{ product.id }}">
-            <input type="hidden" name="substitute_id" value="{{ substitute.id }}">
-            <button class="substitute__form__button btn btn-primary"><i class="fas fa-save"></i> Sauvegarder</button>
-        </form>
+        <a class="substitute__button substitute__button--save btn btn-primary align-self-start" href="{% url 'favorites_api:list' %}" data-product="{{ product.id }}" data-substitute="{{ substitute.id }}"><i class="fas fa-save"></i> Sauvegarder</a>
+        <a class="substitute__button substitute__button--delete btn btn-success align-self-start d-none" href="#"><i class="far fa-check"></i> Sauvardé </a>
         {% endif %}
     </div>
 </div>
