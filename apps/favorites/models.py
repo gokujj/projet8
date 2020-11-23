@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 
+from .managers import FavoriteManager
+
 
 class Favorite(models.Model):
     """Favorite saved by user to substitute a product."""
@@ -21,9 +23,14 @@ class Favorite(models.Model):
         related_name="favorites",
     )
 
+    objects = FavoriteManager()
+
     class Meta:
         verbose_name_plural = 'favorites'
-        unique_together = ('substitute', 'product', 'user')
+        unique_together = [['substitute', 'product', 'user']]
 
     def __str__(self):
-        return f"({user.name}, {product.name}, {substitute.name})"
+        return (
+            f"{self.user.username}: '{self.product.name}' peut être "
+            f"substitué par '{self.substitute.name}'"
+        )

@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.urls import path
 
-from .views import user_favorites
+from .views import FavoriteListView, FavoriteDetailView
 
 app_name = 'favorites'
 
-urlpatterns = [path('', user_favorites, name="user_favorites")]
+urlpatterns = [
+    path('', FavoriteListView.as_view(), name="list"),
+]
