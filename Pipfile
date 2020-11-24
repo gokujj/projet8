@@ -20,7 +20,6 @@ django-crispy-forms = "*"
 werkzeug = "*"
 django-allauth = "*"
 gunicorn = "*"
-django-heroku = "*"
 
 
 [requires]

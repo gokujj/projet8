@@ -50,4 +50,4 @@ function deleteFavorite(event, saveButton, deleteButton) {
         });
     });
 
-})(); // End of use strict
+})(); // End of use strict 

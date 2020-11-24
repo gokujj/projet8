@@ -33,8 +33,8 @@ class FavoriteApiView(LoginRequiredMixin, View):
     def delete(self, request, pk, *args, **kwargs):
         """Efface un favoris de la liste des favoris de l'utilisateur."""
         try:
-            favorite = Favorite.objects.filter(id=pk, user=request.user)
+            favorite = Favorite.objects.get(id=pk, user=request.user)
         except Favorite.DoesNotExist:
             return HttpResponseNotFound()
-        favorite.first().delete()
+        favorite.delete()
         return HttpResponse(status=204)

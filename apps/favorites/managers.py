@@ -10,7 +10,3 @@ class FavoriteManager(models.Manager):
         return self.get_or_create(
             product=product, substitute=substitute, user=user
         )
-
-    def list_favorites(self, user):
-        """Liste les favoris de l'utilisateur."""
-        return self.filter(user=user)

@@ -25,9 +25,7 @@ def test_user_can_log_in_with_correct_email_and_password(
     driver.find_element_by_css_selector("#id_login_button").click()
     driver.find_element_by_css_selector("#menu--user")
     driver.find_element_by_css_selector("#menu--carrot")
-    driver.find_element_by_css_selector("#menu--logout").click()
-    driver.find_element_by_css_selector(".btn-primary").click()
-    driver.find_element_by_css_selector("#menu--login")
+    driver.find_element_by_css_selector("#menu--logout")
 
 
 def test_user_cannot_log_in_with_wrong_password(user, driver, live_server):

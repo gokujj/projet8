@@ -30,5 +30,5 @@ VALID_PRODUCTS = [
 
 
 @pytest.fixture
-def VALID_PRODUCTS():
+def valid_products():
     return VALID_PRODUCTS
