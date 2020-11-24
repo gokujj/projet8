@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Pur Beurre | Mentions légales{% endblock title %}
+
+{% block masthead %}
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-10 align-self-end">
+                <h1 class="text-uppercase text-white font-weight-bold">Mentions légales</h1>
+                <hr class="divider my-4" />
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock masthead %}
+
+{% block content %}
+<main class="main-content container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <p class="col-10">Les illustrations de Collette et Rémi sont l'oeuvre de <a href="https://www.pixar.com/">Pixar Animation Studios</a></p>
+    </div>
+    <div class="row justify-content-center">
+        <p class="col-10">La photo de l'en-tête de la page d'accueil est l'oeuve de <a href="https://unsplash.com/photos/eqsEZNCm4-c">Olenka Kotyk</a>, et a été téléchargée depuis le site <a href="https://unsplash.com">unslpash.com</a></p>
+    </div>
+    <div class="row justify-content-center">
+        <p class="col-10">Les icônes utilisées sont l'oeuvre de <a href="https://fontawesome.com/">Fontawesome.com</a></p>
+    </div>
+</main>
+{% endblock content%} 

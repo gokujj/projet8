@@ -4,18 +4,20 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-django-extensions = "*"
 pytest = "*"
 pytest-django = "*"
 pytest-mock = "*"
 
 [packages]
 django = "*"
+django-extensions = "*"
 requests = "*"
 python-dotenv = "*"
 django-crispy-forms = "*"
 werkzeug = "*"
 django-allauth = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.8"

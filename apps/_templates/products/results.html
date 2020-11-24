@@ -21,9 +21,13 @@
 </header>
 {% endblock masthead %}
 
+{% block masthead_img %}
 {% if product %}
-    {% block masthead_img %}url("{{ product.image_url }}");{% endblock masthead_img %}
+    url("{{ product.image_url }}");
+{% else %}
+    url("{% static 'dist/assets/img/bg-masthead.jpg' %}");
 {% endif %}
+{% endblock masthead_img %}
 
 {% block content %}
 <main class="main-content container mt-5 mb-5">
