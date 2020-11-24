@@ -5,7 +5,7 @@
         <p class="substitute__name"><a href="{% url 'products:details' substitute.id %}">{{ substitute.name|capfirst }}</a></p>
         {% if user.is_authenticated %}
         <a class="substitute__button substitute__button--save btn btn-primary align-self-start" href="{% url 'favorites_api:list' %}" data-product="{{ product.id }}" data-substitute="{{ substitute.id }}"><i class="fas fa-save"></i> Sauvegarder</a>
-        <a class="substitute__button substitute__button--delete btn btn-success align-self-start d-none" href="#"><i class="far fa-check"></i> Sauvardé </a>
+        <a class="substitute__button substitute__button--delete btn btn-success align-self-start d-none" href="#"><i class="fa fa-check"></i> Sauvardé </a>
         {% endif %}
     </div>
 </div>

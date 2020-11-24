@@ -1,8 +1,14 @@
+
 // Variables
 
 //- Override and add to color system
+$rooibos: #C45525;
+$moules: #345A61;
+$rigolo: #86EBE6;
+$caramel: #DE9440;
+$biscuit: #E8A75D;
 
-$orange: #C45525;
+$orange: $rooibos;
 
 // - Nutriscore color codes
 $nutriscore-a: #387e48;
@@ -13,6 +19,7 @@ $nutriscore-e: #d44b29;
 
 //- Override primary color
 $primary: $orange;
+$success: $moules;
 
 //- Override font system
 $font-family-base: "Scope One", sans-serif;
