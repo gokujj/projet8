@@ -8,6 +8,8 @@ pytest = "*"
 pytest-django = "*"
 pytest-mock = "*"
 pytest-cov = "*"
+selenium = "*"
+tchappui-webdrivers = "*"
 
 [packages]
 django = "*"
@@ -20,5 +22,5 @@ django-allauth = "*"
 gunicorn = "*"
 django-heroku = "*"
 
+
 [requires]
-python_version = "3.8"
