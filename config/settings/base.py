@@ -133,6 +133,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+LOGIN_URL = "account_login"
 LOGIN_REDIRECT_URL = "pages:home"
 ACCOUNT_LOGOUT_REDIRECTION = "pages:home"
 

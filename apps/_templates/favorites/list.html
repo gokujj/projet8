@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Pur Beurre | Favoris{% endblock title %}
+
+{% block masthead %}
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-10 align-self-end">
+                <h1 class="text-uppercase text-white font-weight-bold">Liste de vos favoris</h1>
+                <hr class="divider my-4" />
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock masthead %}
+
+{% block content %}
+<main class="main-content container mt-5 mb-5">
+    <div class="favorites row justify-content-center">
+        {% for favorite in favorites %}
+            {% include 'favorites/favorite.html' %}
+        {% empty %}
+            <p>Vous n'avez encore enregistré aucun favori !</p>
+        {% endfor %}
+    </div>
+</main>
+{% endblock content%}
+
+{% block bottom_scripts %}
+{{ block.super }}
+<script src="{% static 'dist/js/favorites/delete.js' %}"></script>
+{% endblock bottom_scripts %} 

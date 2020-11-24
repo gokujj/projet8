@@ -1,0 +1,9 @@
+<div class="favorite col-lg-4 col-md-6 d-flex justify-content-center">
+    <div class="favorite__card">
+        <div class="favorite__nutriscore bg__nutriscore__{{ favorite.substitute.nutriscore }}">{{ favorite.substitute.nutriscore|upper }}</div>
+        <img src="{{ favorite.substitute.image_url_400 }}" alt="{{ favorite.substitute.name }}" class="favorite__image">
+        <p class="favorite__name"><a href="{% url 'products:details' pk=favorite.substitute.id %}">{{ favorite.substitute.name|capfirst }}</a></p>
+        <p class="favorite__name">Substitue <a href="{% url 'products:details' pk=favorite.product.id %}">{{ favorite.product.name|capfirst }} avec le code barre {{ favorite.product.id }} ({{ favorite.product.nurtiscore|upper }})</a></p>
+        <a class="favorite__button favorite__button--delete btn btn-primary align-self-start" href="{% url 'favorites_api:detail' favorite.id %}"><i class="fas fa-trash"></i> Supprimer</a>
+    </div>
+</div>

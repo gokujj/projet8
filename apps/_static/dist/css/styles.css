@@ -10220,6 +10220,54 @@ header.masthead h1 {
   margin: 1rem;
 }
 
+.favorite {
+  padding-bottom: 3rem;
+}
+
+.favorite__card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 550px;
+  position: relative;
+  border: solid 1px #ddd;
+  border-radius: 1rem;
+}
+
+.favorite__nutriscore {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  right: -2rem;
+  top: -2rem;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  line-height: 4.3rem;
+  font-size: 2rem;
+}
+
+.favorite__image {
+  width: 300px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  padding-bottom: 1rem;
+  border-radius: 1rem;
+}
+
+.favorite__name {
+  flex-grow: 1;
+  font-size: 1.2rem;
+  padding: 0 1rem;
+}
+
+.favorite__button {
+  margin: 1rem;
+}
+
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
 }
