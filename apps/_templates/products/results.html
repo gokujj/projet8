@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block title %}Pur Beurre | Résultats{% endblock title %}
@@ -42,3 +43,8 @@
     </div>
 </main>
 {% endblock content%}
+
+{% block bottom_scripts %}
+{{ block.super }}
+<script src="{% static 'dist/js/favorites/save.js' %}"></script>
+{% endblock bottom_scripts %}
