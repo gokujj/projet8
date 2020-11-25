@@ -12,18 +12,8 @@ class Product(models.Model):
     nutriscore = models.CharField('product nutriscore', max_length=1)
     description = models.TextField('product description')
     image_url = models.CharField('product image url', max_length=255)
-    image_url_400 = models.CharField(
-        'product image url medium', max_length=255
-    )
-    image_url_200 = models.CharField('product image url small', max_length=255)
     image_nutrition_url = models.CharField(
         'product nutrition image url', max_length=255
-    )
-    image_nutrition_url_400 = models.CharField(
-        'product nutrition image url medium', max_length=255
-    )
-    image_nutrition_url_200 = models.CharField(
-        'product nutrition image url small', max_length=255
     )
     categories = models.ManyToManyField(
         'categories.Category', related_name='products'
@@ -37,3 +27,19 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def image_url_200(self):
+        return self.image_url.replace('full.', '200.')
+
+    @property
+    def image_url_400(self):
+        return self.image_url.replace('full.', '400.')
+
+    @property
+    def image_nutrition_url_200(self):
+        return self.image_nutrition_url.replace('full.', '200.')
+
+    @property
+    def image_nutrition_url_400(self):
+        return self.image_nutrition_url.replace('full.', '400.')

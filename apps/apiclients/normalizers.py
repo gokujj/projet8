@@ -37,23 +37,6 @@ def transform_field_names(product):
         del product[old_field]
 
 
-def transform_images_to_various_size(product):
-    product['image_url_400'] = product["image_url"]
-    product["image_url"] = product["image_url_400"].replace(
-        "400.jpg", "full.jpg"
-    )
-    product["image_url_200"] = product["image_url_400"].replace(
-        "400.jpg", "200.jpg"
-    )
-    product["image_nutrition_url_400"] = product["image_nutrition_url"]
-    product["image_nutrition_url"] = product[
-        "image_nutrition_url_400"
-    ].replace("400.jpg", "full.jpg")
-    product["image_nutrition_url_200"] = product[
-        "image_nutrition_url_400"
-    ].replace("400.jpg", "200.jpg")
-
-
 def limit_length_of_product_names(product):
     product['name'] = product['name'][:255]
 
@@ -65,28 +48,27 @@ def limit_length_of_category_names(product):
 
 
 class ProductNormalizer:
-    """Object used to standardize product dictionaries."""
+    """Objet permettant de normaliser les dictionnaires de produits."""
 
     normalizers = [
         remove_unuseful_fields,
         transform_fields_into_lowercase_letters,
         transform_categories_into_list,
         transform_field_names,
-        transform_images_to_various_size,
         limit_length_of_product_names,
         limit_length_of_category_names,
     ]
 
     def normalize(self, product):
-        """Standardizes an individual product using the
-        standardizers provided.
+        """Normalise un produit individuel en utilisant les
+        normaliseurs fournis.
         """
         for normalizer in self.normalizers:
             normalizer(product)
 
     def normalize_all(self, products):
-        """Standardize each product in the product list
-        provided.
+        """Normalise chaque produit présent dans la liste de produits
+        fournie.
         """
         for product in products:
             self.normalize(product)

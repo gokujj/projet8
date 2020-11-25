@@ -34,11 +34,7 @@ def product_a_other_category(transactional_db, category, other_category):
         nutriscore="a",
         description="lorem ipsum",
         image_url="http://test-products.org/image.png",
-        image_url_400="http://test-products.org/image.png",
-        image_url_200="http://test-products.org/image.png",
         image_nutrition_url="http://test-products.org/image.png",
-        image_nutrition_url_400="http://test-products.org/image.png",
-        image_nutrition_url_200="http://test-products.org/image.png",
     )
     product.categories.add(category)
     product.categories.add(other_category)
@@ -54,11 +50,7 @@ def product_b_other_category(transactional_db, category, other_category):
         nutriscore="b",
         description="lorem ipsum",
         image_url="http://test-products.org/image.png",
-        image_url_400="http://test-products.org/image.png",
-        image_url_200="http://test-products.org/image.png",
         image_nutrition_url="http://test-products.org/image.png",
-        image_nutrition_url_400="http://test-products.org/image.png",
-        image_nutrition_url_200="http://test-products.org/image.png",
     )
     product.categories.add(category)
     product.categories.add(other_category)
@@ -74,11 +66,7 @@ def product_c_other_category(transactional_db, category, other_category):
         nutriscore="c",
         description="lorem ipsum",
         image_url="http://test-products.org/image.png",
-        image_url_400="http://test-products.org/image.png",
-        image_url_200="http://test-products.org/image.png",
         image_nutrition_url="http://test-products.org/image.png",
-        image_nutrition_url_400="http://test-products.org/image.png",
-        image_nutrition_url_200="http://test-products.org/image.png",
     )
     product.categories.add(category)
     product.categories.add(other_category)
@@ -94,11 +82,7 @@ def product_d_other_category(transactional_db, category, other_category):
         nutriscore="d",
         description="lorem ipsum",
         image_url="http://test-products.org/image.png",
-        image_url_400="http://test-products.org/image.png",
-        image_url_200="http://test-products.org/image.png",
         image_nutrition_url="http://test-products.org/image.png",
-        image_nutrition_url_400="http://test-products.org/image.png",
-        image_nutrition_url_200="http://test-products.org/image.png",
     )
     product.categories.add(category)
     product.categories.add(other_category)
@@ -114,11 +98,7 @@ def product_e_other_category(transactional_db, category, other_category):
         nutriscore="e",
         description="lorem ipsum",
         image_url="http://test-products.org/image.png",
-        image_url_400="http://test-products.org/image.png",
-        image_url_200="http://test-products.org/image.png",
         image_nutrition_url="http://test-products.org/image.png",
-        image_nutrition_url_400="http://test-products.org/image.png",
-        image_nutrition_url_200="http://test-products.org/image.png",
     )
     product.categories.add(category)
     product.categories.add(other_category)
@@ -134,11 +114,7 @@ def product_a(transactional_db, category):
         nutriscore="a",
         description="lorem ipsum",
         image_url="http://test-products.org/image.png",
-        image_url_400="http://test-products.org/image.png",
-        image_url_200="http://test-products.org/image.png",
         image_nutrition_url="http://test-products.org/image.png",
-        image_nutrition_url_400="http://test-products.org/image.png",
-        image_nutrition_url_200="http://test-products.org/image.png",
     )
     product.categories.add(category)
     yield product
@@ -153,11 +129,7 @@ def product_b(transactional_db, category):
         nutriscore="b",
         description="lorem ipsum",
         image_url="http://test-products.org/image.png",
-        image_url_400="http://test-products.org/image.png",
-        image_url_200="http://test-products.org/image.png",
         image_nutrition_url="http://test-products.org/image.png",
-        image_nutrition_url_400="http://test-products.org/image.png",
-        image_nutrition_url_200="http://test-products.org/image.png",
     )
     product.categories.add(category)
     yield product
@@ -172,11 +144,7 @@ def product_c(transactional_db, category):
         nutriscore="c",
         description="lorem ipsum",
         image_url="http://test-products.org/image.png",
-        image_url_400="http://test-products.org/image.png",
-        image_url_200="http://test-products.org/image.png",
         image_nutrition_url="http://test-products.org/image.png",
-        image_nutrition_url_400="http://test-products.org/image.png",
-        image_nutrition_url_200="http://test-products.org/image.png",
     )
     product.categories.add(category)
     yield product
@@ -191,11 +159,7 @@ def product_d(transactional_db, category):
         nutriscore="d",
         description="lorem ipsum",
         image_url="http://test-products.org/image.png",
-        image_url_400="http://test-products.org/image.png",
-        image_url_200="http://test-products.org/image.png",
         image_nutrition_url="http://test-products.org/image.png",
-        image_nutrition_url_400="http://test-products.org/image.png",
-        image_nutrition_url_200="http://test-products.org/image.png",
     )
     product.categories.add(category)
     yield product
@@ -210,11 +174,7 @@ def product_e(transactional_db, category):
         nutriscore="e",
         description="lorem ipsum",
         image_url="http://test-products.org/image.png",
-        image_url_400="http://test-products.org/image.png",
-        image_url_200="http://test-products.org/image.png",
         image_nutrition_url="http://test-products.org/image.png",
-        image_nutrition_url_400="http://test-products.org/image.png",
-        image_nutrition_url_200="http://test-products.org/image.png",
     )
     product.categories.add(category)
     yield product
