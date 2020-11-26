@@ -6,4 +6,5 @@ db.sqlite3
 .coverage
 geckodriver*
 chromedriver*
-webdrivers/ 
+webdrivers/
+.pytest*

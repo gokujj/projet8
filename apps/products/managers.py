@@ -36,7 +36,9 @@ class ProductManager(models.Manager):
         # of data
 
         product = (
-            self.filter(name__icontains=product_name).order_by('?').first()
+            self.filter(name__icontains=product_name)
+            .order_by('-nutriscore', 'name')
+            .first()
         )
 
         if not product:
