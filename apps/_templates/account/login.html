@@ -26,7 +26,8 @@
         </form>
     </div>
     <div class="row justify-content-center mt-5">
-        <p>Si vous n'avez pas encore de compte, <a href="{% url 'account_signup' %}">inscrivez-vous</a> ici.</p>
+        <p class="col-8 text-center">Si vous n'avez pas encore de compte, <a href="{% url 'account_signup' %}">inscrivez-vous ici</a>.</p>
+        <p class="col-8 text-center">Si vous avez oublié votre mot de passe, <a href="{% url 'account_reset_password' %}">réinitialisez-le ici</a>.</p>
     </div>
 </main>
 {% endblock content%}
