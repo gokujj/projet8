@@ -109,6 +109,10 @@
         {% endblock footer %}
 
         {% block bottom_scripts %}
+        <!-- Configuration constants -->
+        <script>
+            const AUTOCOMPLETE_PRODUCTS_URL = "{% url 'completions:products' %}";
+        </script>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
@@ -119,6 +123,7 @@
         <!-- Core theme JS-->
         <script src="{% static 'dist/js/cookies.js' %}"></script>
         <script src="{% static 'dist/js/scripts.js' %}"></script>
+        <script src="{% static 'dist/js/autocomplete.js' %}"></script>
         {% endblock bottom_scripts %}
     </body>
 </html>

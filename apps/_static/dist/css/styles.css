@@ -471,7 +471,7 @@ mark,
   color: #6c757d;
 }
 .blockquote-footer::before {
-  content: "— ";
+  content: "— ";
 }
 
 .img-fluid {
@@ -10170,6 +10170,10 @@ header.masthead h1 {
 }
 .search-form > .form-group:first-child div input {
   width: 100%;
+}
+
+.ui-autocomplete {
+  z-index: 1050;
 }
 
 .substitute {

@@ -4,7 +4,11 @@
         width: 100%;
         input {
             width: 100%;
-            
+
         }
     }
+}
+
+.ui-autocomplete {
+    z-index: 1050;
 }
