@@ -27,10 +27,13 @@
             <p>Vous n'avez encore enregistré aucun favori !</p>
         {% endfor %}
     </div>
+    <div class="row justify-content-center">
+    {% include 'pagination/pagination.html' %}
+</div>
 </main>
 {% endblock content%}
 
 {% block bottom_scripts %}
 {{ block.super }}
 <script src="{% static 'dist/js/favorites/delete.js' %}"></script>
-{% endblock bottom_scripts %} 
+{% endblock bottom_scripts %}
