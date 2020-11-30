@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
+import sentry_sdk
 
 from apiclients.clients import OpenfoodfactsClient
 from apiclients.validators import ProductValidator
@@ -8,25 +9,26 @@ from products.models import Product
 
 
 class Command(BaseCommand):
-    help = 'Downloads product data from the openfoodfacts API'
+    help = 'Updates product data from the openfoodfacts API'
 
     def handle(self, *args, **options):
         client = OpenfoodfactsClient()
         validator = ProductValidator()
         normalizer = ProductNormalizer()
 
-        # Télécharger les données depuis openfoodfacts
+        # Download data from openfoodfacts
         self.stdout.write(
-            self.style.SUCCESS('Downloading products from openfoodfacts...')
+            self.style.SUCCESS('Updating products from openfoodfacts...')
         )
+        sentry_sdk.capture_message('Updating products from openfoodfacts...')
 
         products = client.get_products_by_popularity(
             page_size=settings.PRODUCT_CLIENT_PAGE_SIZE,
-            number_of_pages=settings.PRODUCT_CLIENT_NUMBER_OF_PAGES,
+            number_of_pages=settings.PRODUCT_CLIENT_NUMBER_OF_PAGES * 2,
         )
-        # Valider les données reçues
+        # Validate data
         products = validator.filter(products)
-        # Normaliser les données reçues
+        # Normalize data
         normalizer.normalize_all(products)
 
-        Product.objects.create_from_openfoodfacts(products)
+        Product.objects.update_from_openfoodfacts(products)
