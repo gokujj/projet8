@@ -1,16 +1,24 @@
 import pytest
+from django.contrib.auth import get_user_model
+from allauth.account.models import EmailAddress
 
-from users.models import User
 from products.models import Product
 from categories.models import Category
 from favorites.models import Favorite
 
+User = get_user_model()
+
 
 @pytest.fixture
 def user(transactional_db):
-    yield User.objects.create_user(
+    """Fixture creating a user with a verified email."""
+    user = User.objects.create_user(
         "testuser", "testuser@oc.com", "asdnFSdh7sd8Fa8f"
     )
+    EmailAddress.objects.create(
+        user=user, email="testuser@oc.com", verified=True, primary=True
+    )
+    yield user
 
 
 @pytest.fixture
@@ -202,3 +210,74 @@ def third_favorite(user, product_c, product_e):
         product=product_e, substitute=product_c, user=user
     )
     yield favorite
+
+
+@pytest.fixture
+def fourth_favorite(user, product_a_other_category, product_b_other_category):
+    favorite, _ = Favorite.objects.create_favorite(
+        product=product_b_other_category,
+        substitute=product_a_other_category,
+        user=user,
+    )
+    yield favorite
+
+
+@pytest.fixture
+def fifth_favorite(user, product_b_other_category, product_d_other_category):
+    favorite, _ = Favorite.objects.create_favorite(
+        product=product_d_other_category,
+        substitute=product_b_other_category,
+        user=user,
+    )
+    yield favorite
+
+
+@pytest.fixture
+def sixth_favorite(user, product_c_other_category, product_e_other_category):
+    favorite, _ = Favorite.objects.create_favorite(
+        product=product_e_other_category,
+        substitute=product_c_other_category,
+        user=user,
+    )
+    yield favorite
+
+
+@pytest.fixture
+def sixth_favorite(user, product_c_other_category, product_e_other_category):
+    favorite, _ = Favorite.objects.create_favorite(
+        product=product_e_other_category,
+        substitute=product_c_other_category,
+        user=user,
+    )
+    yield favorite
+
+
+@pytest.fixture
+def seventh_favorite(user, product_c, product_e_other_category):
+    favorite, _ = Favorite.objects.create_favorite(
+        product=product_e_other_category,
+        substitute=product_c,
+        user=user,
+    )
+    yield favorite
+
+
+@pytest.fixture
+def all_favorites(
+    first_favorite,
+    second_favorite,
+    third_favorite,
+    fourth_favorite,
+    fifth_favorite,
+    sixth_favorite,
+    seventh_favorite,
+):
+    yield [
+        first_favorite,
+        second_favorite,
+        third_favorite,
+        fourth_favorite,
+        fifth_favorite,
+        sixth_favorite,
+        seventh_favorite,
+    ]

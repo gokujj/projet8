@@ -1,6 +1,6 @@
-from django.conf import settings
 import pytest
 from selenium import webdriver
+from django.conf import settings
 
 
 @pytest.fixture

@@ -1,19 +1,8 @@
-import pytest
-
-from users.models import User
-
-
-@pytest.fixture
-def user(transactional_db):
-    yield User.objects.create_user(
-        "testuser", "testuser@oc.com", "asdnFSdh7sd8Fa8f"
-    )
-
-
 def test_user_can_log_in_with_correct_email_and_password(
     user, driver, live_server
 ):
     """Tests user can log in with correct email and passwords."""
+
     driver.get(live_server.url)
     driver.find_element_by_css_selector("#menu--login").click()
     driver.find_element_by_css_selector("#id_login").send_keys(
